@@ -2,6 +2,7 @@ pages\Presentation.class
 utilities\ShowContent.class
 app\Main.class
 pages\Team.class
+utilities\ShowDetails.class
 pages\Ods.class
 app\Menu.class
 utilities\RestartMenu.class

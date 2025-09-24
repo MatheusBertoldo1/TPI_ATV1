@@ -9,8 +9,10 @@ package app;
  */
 public class Main {
     public static void main (String[] args){
+        //instanciando menu de navegação
         Menu menu = new Menu();
         
+        //iniciando o menu
         menu.start();
     }
 }
