@@ -1,4 +1,5 @@
 pages\Presentation.class
+utilities\AddDetails.class
 utilities\ShowContent.class
 app\Main.class
 pages\Team.class

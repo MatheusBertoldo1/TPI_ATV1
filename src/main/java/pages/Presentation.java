@@ -6,15 +6,16 @@ package pages;
 import utilities.RestartMenu;
 import utilities.ShowDetails;
 import java.util.Scanner;
+import utilities.AddDetails;
 
 /**
  *
  * @author fatec-dsm2
  */
 public class Presentation {
-    //variaveis
+    //  variaveis
     private static String userResponse; 
-    //instanciando scanner para entrada dos dados
+    //  instanciando scanner para entrada dos dados
     private static Scanner input = new Scanner(System.in);
     
     //apresentando descrição inicial do projeto
@@ -57,6 +58,7 @@ public class Presentation {
         switch(letter.toUpperCase()){
             case "A" -> ShowDetails.ProblemDetails();
             case "B" -> ShowDetails.TechDetails();
+            case "D" -> AddDetails.BuildDetail();
         }
     };
 }
