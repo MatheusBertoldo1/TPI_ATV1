@@ -13,9 +13,9 @@ import utilities.AddDetails;
  * @author fatec-dsm2
  */
 public class Presentation {
-    //  variaveis
+    //  guarda a entrada do usuario
     private static String userResponse; 
-    //  instanciando scanner para entrada dos dados
+    //  scanner -> entrada de dados
     private static Scanner input = new Scanner(System.in);
     
     public static void start(){
@@ -42,28 +42,39 @@ public class Presentation {
         System.out.println(" D ... Cadastrar nova secao! ");
         System.out.println("");
         
+        //instanciando matriz com os cadastros do usuário
+        String matriz[][] = AddDetails.newDetail;
+        
+        //exibindo os cadastros
+        for (int i = 0; i < 21; i++) {
+            if (matriz[i][0] != null) {
+                System.out.println(" " + matriz[i][0] + "..." + matriz[i][1] + " ");
+            }
+        }
+        
+        //abrindo p/ resposta
         options();
     }
     
-    //apresentando descrição inicial do projeto
+    //resposta do usuario
     public static void options() {  
-        //capturando resposta do usuario
+        //capturando
         userResponse = input.nextLine();
         
-        //enviando resposta para verificacao
+        //verificando
         returnBack(userResponse);
         
-        //Opção para voltar ao menu
+        //opção para retornar ao menu
         RestartMenu.restart(false);
     }
     
-    //verificando resposta do usuario e chama funcao correspondente
+    //chamando descrição correspondente
     private static void returnBack(String letter){
         switch(letter.toUpperCase()){
-            case "A" -> ShowDetails.ProblemDetails();
+            case "A" -> ShowDetails.ProblemDetails(); 
             case "B" -> ShowDetails.TechDetails();
             case "D" -> AddDetails.BuildDetail();
-            //default -> "";
+            default -> AddDetails.ShowNewDetail(letter);
         }
     };
 }

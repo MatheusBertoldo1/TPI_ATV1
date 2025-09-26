@@ -6,26 +6,27 @@ package utilities;
 
 import java.util.Scanner;
 import pages.Presentation;
+
+
 /**
  *
  * @author fatec-dsm2
  */
 public class AddDetails {
 
-    //  instanciando scanner para entrada de dados
+    //scanner -> entrada de dados
     private static Scanner input = new Scanner(System.in);
-    //  matriz que guarda os detalhes que o usuario adicionou
-    private static String[][] newDetail = new String[3][21];
+    //matriz que guarda os cadastros (publica)
+    public static String[][] newDetail = new String[21][3];
 
-    //  método para capturar dados do novo detalhe
+    //método para cadastrar nova descrição
     public static void BuildDetail() {
-        //  variaveis para capturar dados
+        //variaveis para cadastrar
         String name;
         String text;
         String index;
-        
 
-        //  capturando dados
+        //capturando dados
         System.out.println(" Digite a letra indice da nova secao: ");
         index = input.nextLine();
         System.out.println(" Digite o nome da nova secao: ");
@@ -33,39 +34,49 @@ public class AddDetails {
         System.out.println(" Digite o texto da nova secao: ");
         text = input.nextLine();
 
-        //  variavel que marca a ultima posicao
+        //variavel que marca a próxima posição vazia da matriz
         int last;
-        
+
         // guardando conteudo em uma matriz
-        
-        // verificando ultima posicao do array para adicionar o detalhe
         for (int i = 0; i < 21; i++) {
-            if (newDetail[0][i] == null) {
-                last = i; // achando a posicao 'vazia'
-                // preenchendo a posicao com nova secao
-                newDetail[0][i] = index;
-                newDetail[1][i] = name;
-                newDetail[2][i] = text;
+            if (newDetail[i][0] == null) {
+                last = i; //achando a posicao 'vazia'
+                //preenchendo a posicao com nova secao
+                newDetail[i][0] = index;
+                newDetail[i][1] = name;
+                newDetail[i][2] = text;
                 break;
             }
         }
-        
-        // exibindo opcoes da pagina Presentation novamente
-        System.out.println("* O que gostaria de saber? (digite a letra da escolha)*");     
+
+        //exibindo opções da pagina Presentation novamente
+        System.out.println("* O que gostaria de saber? (digite a letra da escolha)*");
         System.out.println(" ___________________________________________________________");
         System.out.println(" A ... O problema a ser resolvido ");
         System.out.println(" B ... Detalhes sobre as tecnologias ");
         System.out.println(" D ... Cadastrar nova secao! ");
-        
-        // exibindo novo conteudo
-        for(int i = 0; i < 21; i++){
-            if(newDetail[0][i] != null){
-                    System.out.println( " " + newDetail[0][i] + "..." + newDetail[1][i] + " ");
+
+        //exibindo index e titulo
+        for (int i = 0; i < 21; i++) {
+            if (newDetail[i][0] != null) {
+                System.out.println(" " + newDetail[i][0] + "..." + newDetail[i][1] + " ");
             }
         }
-        
-        // abrindo para nova resposta do usuario
+
+        //abrindo para nova resposta do usuario
         Presentation.options();
-        
+    }
+
+    public static void ShowNewDetail(String letter) {
+
+        //exibindo nova descricao
+        for (int i = 0; i < 21; i++) {
+            if (newDetail[i][0] != null && newDetail[i][0].equals(letter)) {
+                System.out.println(" -> " + newDetail[i][2] + " ");
+            }
+        }
+
+        //Opção para voltar ao menu
+        RestartMenu.restart(false);
     }
 }
