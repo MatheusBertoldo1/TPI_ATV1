@@ -10,9 +10,7 @@ package utilities;
  */
 public class ShowDetails {
 
-    //  matriz que guarda os detalhes que o usuario adicionou
-    private static String[][] newDetail = new String[3][24];
-    
+
     //  exibe os detalhes sobre o problema
     public static void ProblemDetails() {
         System.out.println("");
@@ -36,19 +34,5 @@ public class ShowDetails {
         System.out.println("    de dados em nuvem tambem.");
         System.out.println("");
     }
-
-    //  exibe os detalhes que o usuario adicionou
-    public static void NewDetails(String index, String name, String text){
-        //  variavel que marca a ultima posicao
-        int last;
-        // verificando ultima posicao do array para adicionar o detalhe
-        for(int i = 0; i < 24; i++){
-            if(newDetail[0][i] == null){
-                last = i;
-                break;
-            }
-        }
-        
-        //
-    }
+    
 }

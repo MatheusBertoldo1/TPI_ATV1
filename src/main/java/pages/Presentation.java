@@ -18,8 +18,7 @@ public class Presentation {
     //  instanciando scanner para entrada dos dados
     private static Scanner input = new Scanner(System.in);
     
-    //apresentando descrição inicial do projeto
-    public static void start() {
+    public static void start(){
         System.out.println("\n\n");
         System.out.println("|===========================================================|");
         System.out.println("|   Descricao do Projeto Integrador  |");
@@ -35,7 +34,7 @@ public class Presentation {
         System.out.println(" usando fotos tiradas na camera do celular, a presenca da doenca");
         System.out.println(" fungica conhecida como Pinta Preta, considerada uma das mais ");
         System.out.println(" importantes na citricultura brasileira e mundial. ");
-        System.out.println("");     
+        System.out.println("");    
         System.out.println("* O que gostaria de saber? (digite a letra da escolha)*");     
         System.out.println(" ___________________________________________________________");
         System.out.println(" A ... O problema a ser resolvido ");
@@ -43,6 +42,11 @@ public class Presentation {
         System.out.println(" D ... Cadastrar nova secao! ");
         System.out.println("");
         
+        options();
+    }
+    
+    //apresentando descrição inicial do projeto
+    public static void options() {  
         //capturando resposta do usuario
         userResponse = input.nextLine();
         
@@ -59,6 +63,7 @@ public class Presentation {
             case "A" -> ShowDetails.ProblemDetails();
             case "B" -> ShowDetails.TechDetails();
             case "D" -> AddDetails.BuildDetail();
+            //default -> "";
         }
     };
 }
