@@ -10,7 +10,6 @@ package utilities;
  */
 public class ShowDetails {
 
-
     //  exibe os detalhes sobre o problema
     public static void ProblemDetails() {
         System.out.println("");

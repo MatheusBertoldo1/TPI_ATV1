@@ -14,14 +14,14 @@ import pages.Presentation;
  */
 public class AddDetails {
 
-    //scanner -> entrada de dados
+    //entrada de dados
     private static Scanner input = new Scanner(System.in);
-    //matriz que guarda os cadastros (publica)
+    //matriz que guarda os cadastros
     public static String[][] newDetail = new String[21][3];
 
-    //método para cadastrar nova descrição
+    //método -> cadastra nova descrição
     public static void BuildDetail() {
-        //variaveis para cadastrar
+        //variaveis para cadastro
         String name;
         String text;
         String index;
@@ -56,26 +56,33 @@ public class AddDetails {
         System.out.println(" B ... Detalhes sobre as tecnologias ");
         System.out.println(" D ... Cadastrar nova secao! ");
 
-        //exibindo index e titulo
-        for (int i = 0; i < 21; i++) {
-            if (newDetail[i][0] != null) {
-                System.out.println(" " + newDetail[i][0] + "..." + newDetail[i][1] + " ");
-            }
-        }
+        //exibindo opções cadastradas
+        ShowNewDetail();
 
         //abrindo para nova resposta do usuario
         Presentation.options();
     }
+    
+    //método -> exibe nova opção
+    public static void ShowNewDetail(){
+        //exibindo 'index' e 'name'
+        for (int i = 0; i < 21; i++) {
+            if (newDetail[i][0] != null) {
+                System.out.println(" " + newDetail[i][0] + " ... " + newDetail[i][1] + " ");
+            }
+        }
+    }
+    
+    //método -> exibe nova descrição
+    public static void ShowNewDescription(String letter) {
 
-    public static void ShowNewDetail(String letter) {
-
-        //exibindo nova descricao
+        //exibindo 'text'
         for (int i = 0; i < 21; i++) {
             if (newDetail[i][0] != null && newDetail[i][0].equals(letter)) {
                 System.out.println(" -> " + newDetail[i][2] + " ");
             }
         }
-
+        
         //Opção para voltar ao menu
         RestartMenu.restart(false);
     }
